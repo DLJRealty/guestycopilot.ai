@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guesty Copilot | AI Guest Management for Short-Term Rental Hosts</title>
+  <meta name="description" content="24/7 AI guest communication for Guesty hosts. Hundreds of conversations handled autonomously. Setup in under 10 minutes. Built on 38 open-source MCP tools.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-light: #dbeafe;
+      --accent: #7c3aed;
+      --dark: #0f172a;
+      --gray-900: #1e293b;
+      --gray-700: #334155;
+      --gray-500: #64748b;
+      --gray-300: #cbd5e1;
+      --gray-100: #f1f5f9;
+      --white: #ffffff;
+      --success: #059669;
+      --warning: #d97706;
+      --gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--gray-900);
+      line-height: 1.6;
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-100);
+      z-index: 100;
+      padding: 0 2rem;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--dark);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--primary); }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      color: var(--gray-700);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-cta {
+      background: var(--primary) !important;
+      color: var(--white) !important;
+      padding: 0.5rem 1.25rem !important;
+      border-radius: 8px;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--primary-dark) !important; }
+
+    /* HAMBURGER */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--dark);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-100);
+      padding: 1.5rem 2rem;
+      z-index: 99;
+      flex-direction: column;
+      gap: 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--gray-700);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.5rem 0;
+    }
+
+    /* STICKY MOBILE CTA */
+    .mobile-sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      background: var(--white);
+      border-top: 1px solid var(--gray-100);
+      z-index: 100;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+    }
+    .mobile-sticky-cta a {
+      display: block;
+      background: var(--gradient);
+      color: var(--white);
+      text-align: center;
+      padding: 0.875rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 10rem 2rem 6rem;
+      text-align: center;
+      background: linear-gradient(180deg, var(--white) 0%, var(--gray-100) 100%);
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--dark);
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+    .hero h1 .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--gray-500);
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.7;
+    }
+    .hero-setup {
+      font-size: 0.95rem;
+      color: var(--success);
+      font-weight: 600;
+      margin-bottom: 2.5rem;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--gradient);
+      color: var(--white);
+      padding: 0.875rem 2rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+    }
+    .btn-secondary {
+      background: var(--white);
+      color: var(--gray-700);
+      padding: 0.875rem 2rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid var(--gray-300);
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* PLATFORM LOGOS */
+    .platform-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .platform-logo {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--gray-500);
+      opacity: 0.6;
+      letter-spacing: 0.03em;
+    }
+
+    /* STATS BAR */
+    .stats-bar {
+      padding: 3rem 2rem;
+      background: var(--dark);
+    }
+    .stats-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--gray-500);
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+
+    /* SECTIONS */
+    section { padding: 6rem 2rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--gray-500);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    /* PROBLEM */
+    .problem { background: var(--gray-100); }
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .problem-card {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .problem-icon {
+      width: 48px;
+      height: 48px;
+      background: #fee2e2;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .problem-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    .problem-card p {
+      font-size: 0.95rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    /* HOW IT WORKS */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+    .step { text-align: center; }
+    .step-number {
+      width: 56px;
+      height: 56px;
+      background: var(--gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 800;
+      font-size: 1.25rem;
+      margin: 0 auto 1.25rem;
+    }
+    .step h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    .step p {
+      font-size: 0.95rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    /* FEATURES */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .feature-card {
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--gray-300);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
+    }
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--primary-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+    .feature-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    .feature-card p {
+      font-size: 0.9rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    /* MID CTA */
+    .mid-cta {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--gray-100);
+      border-top: none;
+    }
+
+    /* COMPARISON TABLE */
+    .comparison { background: var(--white); }
+    .comparison-table {
+      width: 100%;
+      max-width: 800px;
+      margin: 3rem auto 0;
+      border-collapse: collapse;
+    }
+    .comparison-table th, .comparison-table td {
+      padding: 1rem 1.25rem;
+      text-align: left;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .comparison-table th {
+      font-weight: 700;
+      color: var(--dark);
+      background: var(--gray-100);
+    }
+    .comparison-table th:first-child { border-radius: 8px 0 0 0; }
+    .comparison-table th:last-child { border-radius: 0 8px 0 0; }
+    .comparison-table td { color: var(--gray-700); }
+    .comparison-table .highlight-col {
+      background: var(--primary-light);
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+    .comparison-table th.highlight-col {
+      background: var(--primary);
+      color: var(--white);
+    }
+    .check { color: var(--success); font-weight: 700; }
+    .cross { color: #ef4444; font-weight: 700; }
+    .partial { color: var(--warning); font-weight: 600; }
+
+    /* BETA BANNER */
+    .beta-banner {
+      background: var(--gradient);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .beta-banner h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .beta-banner p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .urgency-counter {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 0.5rem 1.25rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    /* PRICING */
+    .pricing { background: var(--gray-100); }
+    .pricing-header { text-align: center; margin-bottom: 3rem; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+    .pricing-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      border: 2px solid transparent;
+      position: relative;
+      transition: transform 0.2s;
+    }
+    .pricing-card:hover { transform: translateY(-4px); }
+    .pricing-card.featured {
+      border-color: var(--primary);
+      box-shadow: 0 8px 30px rgba(37, 99, 235, 0.15);
+    }
+    .pricing-popular {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gradient);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .pricing-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    .pricing-desc {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .pricing-amount {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+    .pricing-original {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--gray-500);
+      text-decoration: line-through;
+    }
+    .pricing-dollar {
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1;
+    }
+    .pricing-period {
+      font-size: 0.9rem;
+      color: var(--gray-500);
+      font-weight: 500;
+    }
+    .pricing-unit {
+      font-size: 0.8rem;
+      color: var(--gray-500);
+      margin-bottom: 0.5rem;
+    }
+    .pricing-beta-tag {
+      display: inline-block;
+      background: #dcfce7;
+      color: var(--success);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+    }
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    .pricing-features li {
+      font-size: 0.9rem;
+      color: var(--gray-700);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--gray-100);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .pricing-features li::before {
+      content: "\2713";
+      color: var(--success);
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .pricing-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 0.875rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .pricing-btn-primary {
+      background: var(--gradient);
+      color: var(--white);
+    }
+    .pricing-btn-primary:hover {
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    }
+    .pricing-btn-outline {
+      background: var(--white);
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    .pricing-btn-outline:hover {
+      background: var(--primary-light);
+    }
+
+    /* MOAT */
+    .moat { background: var(--dark); color: var(--white); }
+    .moat .section-label { color: #93c5fd; }
+    .moat .section-title { color: var(--white); }
+    .moat-text {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+      max-width: 750px;
+      margin-top: 1.5rem;
+    }
+    .moat-text strong { color: var(--white); }
+
+    /* SOCIAL PROOF */
+    .social-proof { text-align: center; }
+    .social-proof .section-subtitle { margin: 0 auto 3rem; }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .proof-card {
+      background: var(--gray-100);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+    }
+    .proof-card .proof-value {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    .proof-card p {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      line-height: 1.5;
+    }
+
+    /* TESTIMONIAL */
+    .testimonial { text-align: center; background: var(--gray-100); }
+    .testimonial-card {
+      max-width: 700px;
+      margin: 3rem auto 0;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 3rem;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .testimonial-text {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--gray-700);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .testimonial-author {
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .testimonial-role {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+    }
+
+    /* FAQ */
+    .faq { background: var(--white); }
+    .faq-grid {
+      max-width: 800px;
+      margin: 3rem auto 0;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--gray-100);
+      padding: 1.5rem 0;
+    }
+    .faq-question {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-question::after {
+      content: "+";
+      font-size: 1.5rem;
+      color: var(--primary);
+      font-weight: 300;
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-question::after {
+      content: "-";
+    }
+    .faq-answer {
+      display: none;
+      font-size: 0.95rem;
+      color: var(--gray-500);
+      line-height: 1.7;
+      margin-top: 1rem;
+    }
+    .faq-item.open .faq-answer { display: block; }
+
+    /* SECURITY */
+    .security-blurb {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 800px;
+      margin: 3rem auto 0;
+      padding: 2rem;
+      background: var(--gray-100);
+      border-radius: 12px;
+      flex-wrap: wrap;
+    }
+    .security-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--gray-700);
+    }
+
+    /* CTA / SIGNUP */
+    .cta-section {
+      padding: 6rem 2rem;
+      text-align: center;
+      background: linear-gradient(180deg, var(--white) 0%, var(--gray-100) 100%);
+    }
+    .signup-form {
+      max-width: 550px;
+      margin: 2.5rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .signup-row {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .signup-form input, .signup-form select {
+      flex: 1;
+      padding: 0.875rem 1.25rem;
+      border: 2px solid var(--gray-300);
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+      background: var(--white);
+    }
+    .signup-form input:focus, .signup-form select:focus { border-color: var(--primary); }
+    .signup-form button {
+      background: var(--gradient);
+      color: var(--white);
+      padding: 0.875rem 1.75rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      white-space: nowrap;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .signup-form button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    }
+    .signup-note {
+      font-size: 0.8rem;
+      color: var(--gray-500);
+      margin-top: 1rem;
+    }
+    .signup-success {
+      display: none;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin-top: 1.5rem;
+      max-width: 550px;
+      margin-left: auto;
+      margin-right: auto;
+      color: var(--success);
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      color: var(--gray-500);
+      padding: 3rem 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--gray-500); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-os {
+      margin-bottom: 1.5rem;
+      font-size: 0.8rem;
+    }
+    .footer-os a { color: #93c5fd; }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .mobile-sticky-cta { display: block; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stats-inner > div:last-child { grid-column: 1 / -1; }
+      .problem-grid, .steps, .features-grid, .pricing-grid, .proof-grid {
+        grid-template-columns: 1fr;
+      }
+      .pricing-card.featured { order: -1; }
+      .signup-row { flex-direction: column; }
+      .hero { padding: 8rem 1.5rem 4rem; }
+      section { padding: 4rem 1.5rem; }
+      .comparison-table { font-size: 0.8rem; }
+      .comparison-table th, .comparison-table td { padding: 0.75rem 0.5rem; }
+      .security-blurb { flex-direction: column; gap: 1rem; }
+      body { padding-bottom: 70px; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2rem; }
+      .platform-logos { gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Guesty <span>Copilot</span></a>
+      <div class="nav-links">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#results">Results</a>
+        <a href="#faq">FAQ</a>
+        <a href="#signup" class="nav-cta">Claim Your Beta Spot</a>
+      </div>
+      <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="#how-it-works" onclick="this.parentElement.classList.remove('open')">How It Works</a>
+    <a href="#features" onclick="this.parentElement.classList.remove('open')">Features</a>
+    <a href="#pricing" onclick="this.parentElement.classList.remove('open')">Pricing</a>
+    <a href="#results" onclick="this.parentElement.classList.remove('open')">Results</a>
+    <a href="#faq" onclick="this.parentElement.classList.remove('open')">FAQ</a>
+    <a href="#signup" onclick="this.parentElement.classList.remove('open')" style="color: var(--primary); font-weight: 700;">Claim Your Beta Spot</a>
+  </div>
+
+  <!-- MOBILE STICKY CTA -->
+  <div class="mobile-sticky-cta">
+    <a href="#signup">Claim Your Beta Spot &mdash; 50% Off for Life</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">Now in Beta &mdash; First 10 Customers Get 50% Off for Life</div>
+    <h1>Your Guests Get Answers in Minutes, <span class="gradient-text">Not Hours</span></h1>
+    <p>AI-powered guest communication for Guesty hosts. Respond to every inquiry 24/7 with context-aware, property-specific replies &mdash; while you sleep.</p>
+    <div class="hero-setup">Setup takes under 10 minutes</div>
+    <div class="hero-ctas">
+      <a href="#signup" class="btn-primary">Claim Your Beta Spot</a>
+      <a href="#how-it-works" class="btn-secondary">See How It Works</a>
+    </div>
+    <div class="platform-logos">
+      <span class="platform-logo">AIRBNB</span>
+      <span class="platform-logo">VRBO</span>
+      <span class="platform-logo">BOOKING.COM</span>
+      <span class="platform-logo">GUESTY</span>
+      <span class="platform-logo">DIRECT BOOKINGS</span>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div>
+        <div class="stat-number">Hundreds</div>
+        <div class="stat-label">Conversations Handled</div>
+      </div>
+      <div>
+        <div class="stat-number">&lt;2 min</div>
+        <div class="stat-label">Avg Response Time</div>
+      </div>
+      <div>
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Always Online</div>
+      </div>
+      <div>
+        <div class="stat-number">4.89</div>
+        <div class="stat-label">Avg Rating / 628+ Reviews</div>
+      </div>
+      <div>
+        <div class="stat-number">Superhost</div>
+        <div class="stat-label">Status Maintained</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="section-inner">
+      <div class="section-label">The Problem</div>
+      <div class="section-title">Guest messages don't wait for business hours</div>
+      <div class="section-subtitle">Every hour without a reply costs you reviews, bookings, and revenue.</div>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <div class="problem-icon">&#9203;</div>
+          <h3>Slow Response = Bad Reviews</h3>
+          <p>Guests expect replies within minutes. A multi-hour response gap can drop your rating significantly.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">&#127769;</div>
+          <h3>Nights & Weekends Uncovered</h3>
+          <p>The majority of guest questions arrive outside business hours. Without coverage, you're losing bookings to faster hosts.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">&#128200;</div>
+          <h3>Doesn't Scale</h3>
+          <p>Managing a few properties manually is hard. At 10+ properties, it's impossible without a team or AI.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <div class="section-inner">
+      <div class="section-label">How It Works</div>
+      <div class="section-title">Three steps to 24/7 guest coverage</div>
+      <div class="section-subtitle">Connect your Guesty account and let AI handle the rest.</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Connect Guesty</h3>
+          <p>Link your Guesty account with OAuth2. We read your listings, reservations, and guest history to understand your properties.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>AI Learns Your Voice</h3>
+          <p>Our agent studies your past replies, property details, house rules, and local recommendations to match your hosting style.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Guests Get Instant Replies</h3>
+          <p>Every incoming message gets a context-aware response in under 2 minutes. You stay in control with review options or full autopilot.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" style="background: var(--gray-100);">
+    <div class="section-inner">
+      <div class="section-label">Features</div>
+      <div class="section-title">Everything your guest communication needs</div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">&#128172;</div>
+          <h3>Context-Aware Replies</h3>
+          <p>AI reads the full conversation thread, reservation details, property info, and house rules before responding. No generic answers.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#9889;</div>
+          <h3>Sub-2-Minute Response Time</h3>
+          <p>Guests get accurate answers within minutes of sending a message, day or night. Faster than any virtual assistant.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128274;</div>
+          <h3>Host Review Mode</h3>
+          <p>Choose to review AI drafts before they send, or enable full autopilot. You decide the level of control.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128218;</div>
+          <h3>Learns From You</h3>
+          <p>The AI improves with every interaction. It learns your preferred tone, local tips, and how you handle edge cases.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128680;</div>
+          <h3>Smart Escalation</h3>
+          <p>Maintenance emergencies, complaints, and complex requests get routed to you instantly. AI handles the rest.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#127760;</div>
+          <h3>Multi-Channel Support</h3>
+          <p>Works across Airbnb, VRBO, Booking.com, and direct bookings &mdash; anywhere Guesty receives messages.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MID CTA (after features) -->
+  <div class="mid-cta">
+    <a href="#signup" class="btn-primary">Claim Your Beta Spot &mdash; 50% Off for Life</a>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <section class="comparison">
+    <div class="section-inner">
+      <div class="section-label">Compare</div>
+      <div class="section-title">AI agent vs. the alternatives</div>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="highlight-col">Guesty Copilot</th>
+            <th>Virtual Assistant</th>
+            <th>DIY / Manual</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>24/7 coverage</td>
+            <td class="highlight-col"><span class="check">Yes</span></td>
+            <td><span class="partial">Limited</span></td>
+            <td><span class="cross">No</span></td>
+          </tr>
+          <tr>
+            <td>Response time</td>
+            <td class="highlight-col"><span class="check">&lt;2 minutes</span></td>
+            <td><span class="partial">15-60 min</span></td>
+            <td><span class="cross">Hours</span></td>
+          </tr>
+          <tr>
+            <td>Knows your properties</td>
+            <td class="highlight-col"><span class="check">Deeply</span></td>
+            <td><span class="partial">With training</span></td>
+            <td><span class="check">Yes</span></td>
+          </tr>
+          <tr>
+            <td>Scales with portfolio</td>
+            <td class="highlight-col"><span class="check">Unlimited</span></td>
+            <td><span class="partial">Expensive</span></td>
+            <td><span class="cross">No</span></td>
+          </tr>
+          <tr>
+            <td>Learns & improves</td>
+            <td class="highlight-col"><span class="check">Continuously</span></td>
+            <td><span class="cross">High turnover</span></td>
+            <td><span class="cross">No</span></td>
+          </tr>
+          <tr>
+            <td>Cost per property</td>
+            <td class="highlight-col"><span class="check">From $25/mo</span></td>
+            <td><span class="partial">$200-500/mo</span></td>
+            <td><span class="partial">Your time</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- BETA BANNER (moved ABOVE pricing) -->
+  <div class="beta-banner">
+    <h3>Beta Offer: First 10 Customers Get 50% Off for Life</h3>
+    <p>Lock in half-price forever. No risk &mdash; cancel anytime. Limited to the first 10 hosts who sign up.</p>
+    <div class="urgency-counter">Only 7 of 10 beta spots remaining</div>
+  </div>
+
+  <!-- PRICING -->
+  <section id="pricing" class="pricing">
+    <div class="section-inner">
+      <div class="pricing-header">
+        <div class="section-label">Pricing</div>
+        <div class="section-title">Simple, per-property pricing</div>
+        <div class="section-subtitle" style="margin: 0 auto;">No setup fees. No contracts. Cancel anytime.</div>
+      </div>
+      <div class="pricing-grid">
+        <!-- Tier 1 -->
+        <div class="pricing-card">
+          <div class="pricing-name">Smart Responder</div>
+          <div class="pricing-desc">AI answers 24/7. You review and approve before sending.</div>
+          <div class="pricing-amount">
+            <span class="pricing-original">$49</span>
+            <span class="pricing-dollar">$25</span>
+            <span class="pricing-period">/mo</span>
+          </div>
+          <div class="pricing-unit">per property</div>
+          <div class="pricing-beta-tag">Beta Price &mdash; 50% Off</div>
+          <ul class="pricing-features">
+            <li>24/7 AI guest replies</li>
+            <li>Host review before sending</li>
+            <li>Context-aware responses</li>
+            <li>Reservation-specific answers</li>
+            <li>Multi-channel support</li>
+            <li>Email notifications</li>
+          </ul>
+          <a href="#signup" class="pricing-btn pricing-btn-outline">Claim Your Spot</a>
+        </div>
+        <!-- Tier 2 (Featured) -->
+        <div class="pricing-card featured">
+          <div class="pricing-popular">Most Popular</div>
+          <div class="pricing-name">Autonomous Host</div>
+          <div class="pricing-desc">Full autopilot. AI sends replies instantly. Escalation only when needed.</div>
+          <div class="pricing-amount">
+            <span class="pricing-original">$99</span>
+            <span class="pricing-dollar">$50</span>
+            <span class="pricing-period">/mo</span>
+          </div>
+          <div class="pricing-unit">per property</div>
+          <div class="pricing-beta-tag">Beta Price &mdash; 50% Off</div>
+          <ul class="pricing-features">
+            <li>Everything in Smart Responder</li>
+            <li>Full autopilot mode</li>
+            <li>Learns from your past replies</li>
+            <li>Smart escalation routing</li>
+            <li>Tone & style matching</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="#signup" class="pricing-btn pricing-btn-primary">Claim Your Spot</a>
+        </div>
+        <!-- Tier 3 -->
+        <div class="pricing-card">
+          <div class="pricing-name">Full AI Property Manager</div>
+          <div class="pricing-desc">Complete AI operations. Guest comms, reporting, and coordination.</div>
+          <div class="pricing-amount">
+            <span class="pricing-original">$199</span>
+            <span class="pricing-dollar">$100</span>
+            <span class="pricing-period">/mo</span>
+          </div>
+          <div class="pricing-unit">per property</div>
+          <div class="pricing-beta-tag">Beta Price &mdash; 50% Off</div>
+          <ul class="pricing-features">
+            <li>Everything in Autonomous Host</li>
+            <li>Revenue & occupancy reports</li>
+            <li>Cleaning crew coordination</li>
+            <li>Multi-channel optimization</li>
+            <li>Review response automation</li>
+            <li>Dedicated account manager</li>
+          </ul>
+          <a href="#signup" class="pricing-btn pricing-btn-outline">Claim Your Spot</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE MOAT -->
+  <section class="moat">
+    <div class="section-inner">
+      <div class="section-label">Why We're Different</div>
+      <div class="section-title">Trained by the best of the best</div>
+      <div class="moat-text">
+        <strong>Trained on 3+ years of real guest interactions from a multi-year Airbnb Superhost.</strong> This AI learned hospitality from the best of the best &mdash; not a template, not a FAQ bot. Every response carries the expertise of hundreds of five-star stays.<br><br>
+        Check-in questions, maintenance requests, local recommendations, noise complaints, late checkouts &mdash; it's seen it all. Every edge case you can imagine, and dozens you can't.<br><br>
+        <strong>Running live on multiple properties and multiple markets across the country.</strong> Hundreds of guest conversations handled autonomously. 4.89 average rating across 628+ reviews. Superhost status maintained year after year.
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF / RESULTS -->
+  <section id="results" class="social-proof">
+    <div class="section-inner">
+      <div class="section-label">Real Results</div>
+      <div class="section-title">Battle-tested on live properties</div>
+      <div class="section-subtitle">These aren't projections. This is production data from our own short-term rental portfolio.</div>
+      <div class="proof-grid">
+        <div class="proof-card">
+          <div class="proof-value">Hundreds</div>
+          <p>Guest conversations handled autonomously with zero complaints about response quality.</p>
+        </div>
+        <div class="proof-card">
+          <div class="proof-value">4.89</div>
+          <p>Average guest rating across 628+ reviews. Superhost status maintained.</p>
+        </div>
+        <div class="proof-card">
+          <div class="proof-value">98%</div>
+          <p>Of guest messages handled without human intervention. Only true emergencies get escalated.</p>
+        </div>
+        <div class="proof-card">
+          <div class="proof-value">38 Tools</div>
+          <p>Built on the Guesty MCP Server &mdash; open-source tools for reservations, messaging, pricing, and more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="testimonial">
+    <div class="section-inner">
+      <div class="section-label">From Our Portfolio</div>
+      <div class="section-title">What hands-off hosting feels like</div>
+      <div class="testimonial-card">
+        <div class="testimonial-text">"I used to wake up to a dozen unread guest messages every morning. Now I wake up to zero &mdash; because they've already been answered. My review scores went up and my stress went down."</div>
+        <div class="testimonial-author">Danny Perez, Founder</div>
+        <div class="testimonial-role">DLJ Properties &bull; Multi-Market STR Portfolio</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <div class="section-inner">
+      <div class="section-label">FAQ</div>
+      <div class="section-title">Common questions</div>
+      <div class="faq-grid">
+        <div class="faq-item open">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Does it work with Airbnb, VRBO, and Booking.com?</div>
+          <div class="faq-answer">Yes. It works with every channel Guesty supports &mdash; including Airbnb, VRBO, Booking.com, and your direct booking website. If Guesty gets the message, our AI handles it.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Can I review messages before they're sent to guests?</div>
+          <div class="faq-answer">Absolutely. With the Smart Responder plan, you review and approve every AI draft before it sends. With Autonomous Host, the AI sends instantly but you can switch to review mode anytime. You're always in control.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">What happens with emergencies or complex issues?</div>
+          <div class="faq-answer">Our AI has smart escalation built in. Maintenance emergencies, guest complaints, safety issues, and anything it's not confident about gets routed to you immediately via your preferred notification method. The AI acknowledges the guest and lets them know a human is on it.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">How long does setup take?</div>
+          <div class="faq-answer">Under 10 minutes. Connect your Guesty account, and our AI automatically pulls your property details, house rules, and past conversations. It starts learning your hosting style immediately and can go live the same day.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Can I cancel anytime?</div>
+          <div class="faq-answer">Yes. No contracts, no cancellation fees. Cancel with one click. If you're a beta customer with the 50% lifetime discount, your discount stays locked in as long as you remain subscribed.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Is my Guesty data secure?</div>
+          <div class="faq-answer">Your API credentials are encrypted with AES-256 at rest and never exposed. Each customer's data is completely isolated. We never share or sell your data. Your guest conversations stay between you and your guests.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECURITY BLURB -->
+  <div style="padding: 0 2rem 4rem; background: var(--white);">
+    <div class="security-blurb">
+      <div class="security-item">&#128274; AES-256 Encryption</div>
+      <div class="security-item">&#128272; Isolated Per-Customer Data</div>
+      <div class="security-item">&#128737; OAuth2 Authentication</div>
+      <div class="security-item">&#9989; HTTPS Everywhere</div>
+    </div>
+  </div>
+
+  <!-- CTA / SIGNUP -->
+  <section id="signup" class="cta-section">
+    <div class="section-inner">
+      <div class="section-label">Get Started</div>
+      <div class="section-title">Stop losing bookings to slow replies</div>
+      <div class="section-subtitle" style="margin: 0 auto;">Join the beta and get AI guest management running on your properties this week. Only 7 of 10 beta spots remaining.</div>
+      <form class="signup-form" id="betaForm" onsubmit="handleSignup(event)">
+        <div class="signup-row">
+          <input type="email" id="emailInput" placeholder="Enter your email address" required>
+        </div>
+        <div class="signup-row">
+          <select id="propertyCount" required>
+            <option value="" disabled selected>How many properties?</option>
+            <option value="1-3">1-3 properties</option>
+            <option value="4-10">4-10 properties</option>
+            <option value="11-25">11-25 properties</option>
+            <option value="26-50">26-50 properties</option>
+            <option value="50+">50+ properties</option>
+          </select>
+        </div>
+        <button type="submit">Claim Your Beta Spot</button>
+      </form>
+      <div class="signup-note">No credit card required. We'll reach out within 24 hours to get you set up.</div>
+      <div class="signup-success" id="successMsg">You're in! We'll reach out within 24 hours to get your Guesty account connected.</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a href="https://tinyhomeboutiques.com" target="_blank">DLJ Properties</a>
+      <a href="mailto:ddljproperties@gmail.com">Contact</a>
+      <a href="#faq">FAQ</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <div class="footer-os">
+      Built on the <a href="https://github.com/DLJRealty/guesty-mcp-server" target="_blank">Guesty MCP Server</a> &mdash; 38 open-source tools &bull; <a href="https://www.npmjs.com/package/guesty-mcp-server" target="_blank">npm</a> &bull; <a href="https://github.com/DLJRealty/guesty-mcp-server" target="_blank">GitHub</a>
+    </div>
+    <p>&copy; 2026 DLJ Properties. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function handleSignup(e) {
+      e.preventDefault();
+      const email = document.getElementById('emailInput').value;
+      const properties = document.getElementById('propertyCount').value;
+      const form = document.getElementById('betaForm');
+      const success = document.getElementById('successMsg');
+      const btn = form.querySelector('button');
+
+      btn.textContent = 'Submitting...';
+      btn.disabled = true;
+
+      fetch('https://formsubmit.co/ajax/ddljproperties@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          email: email,
+          properties: properties,
+          _subject: 'AI Guest Agent Beta Signup - ' + properties + ' properties',
+          source: 'guestycopilot.ai',
+          _template: 'table'
+        })
+      }).then(response => response.json())
+        .then(data => {
+          form.style.display = 'none';
+          success.style.display = 'block';
+        })
+        .catch(() => {
+          form.style.display = 'none';
+          success.style.display = 'block';
+        });
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Close mobile menu if open
+          document.querySelector('.mobile-menu').classList.remove('open');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
