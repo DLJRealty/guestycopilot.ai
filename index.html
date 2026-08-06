@@ -532,10 +532,7 @@
       max-width: 600px;
       margin: 0 auto;
     }
-    /* 2026-08-06 (CTO): .urgency-counter DELETED WITH ITS ELEMENT. It styled
-       "Only 7 of 10 beta spots remaining" — a fabricated scarcity count, removed
-       by CEO ruling. Leaving the rule behind would have left a styled, named slot
-       inviting the claim straight back in. Delete the styling with the claim. */
+    /* .urgency-counter removed 2026-08-06 — do not re-add; see repo history. */
 
     /* PRICING */
     .pricing { background: var(--gray-100); }
@@ -1629,12 +1626,6 @@
         <button type="submit">Join the Waitlist</button>
       </form>
       <div class="signup-note">No credit card required. We'll reach out within 24 hours.</div>
-      <!-- 2026-08-06 (CTO): was "...within 24 hours to get your Guesty account
-           connected." The CEO ruled the identical onboarding promise out of the
-           signup-note above ("to get you set up"); the same promise, in a stronger
-           form, survived here because it only renders after submit. Applying his
-           ruling to one surface and not its copy is the defect, not the fix. The
-           24-hour contact commitment is kept — it is the part we can honour. -->
       <div class="signup-error" id="errorMsg" style="display:none;background:#3a1414;border:1px solid #a33;color:#ffb4b4;padding:14px 18px;border-radius:10px;margin-top:14px;font-weight:600;">That didn't send &mdash; we did not receive your details. Please email us directly at <a href="mailto:guestycopilot@gmail.com" style="color:#fff;text-decoration:underline;">guestycopilot@gmail.com</a>.</div>
       <div class="signup-success" id="successMsg">You're in! We'll reach out within 24 hours.</div>
     </div>
