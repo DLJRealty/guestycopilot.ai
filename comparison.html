@@ -11,12 +11,12 @@
     gtag('config', 'G-RHX3LPSWFM');
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GuestyCopilot vs Guesty AI vs Zapier | Compare</title>
-  <meta name="description" content="How GuestyCopilot compares to Guesty-native AI and Zapier for connecting AI to your Guesty account: any AI assistant, OAuth2 security, no lock-in. 23 free tools live now.">
+  <title>Guesty Copilot vs Guesty MCP vs Zapier | Compare</title>
+  <meta name="description" content="Guesty Copilot vs Guesty's read-only MCP beta vs Zapier: which lets your AI actually send guest messages, update pricing and create reservations. Free, open source, 43 tools.">
   <link rel="canonical" href="https://guestycopilot.com/comparison.html">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="GuestyCopilot vs Guesty AI vs Zapier">
-  <meta property="og:description" content="Compare GuestyCopilot, Guesty-native AI, and Zapier for AI access to Guesty. Bring your own AI, OAuth2 secure, no lock-in.">
+  <meta property="og:title" content="Guesty Copilot vs Guesty MCP vs Zapier">
+  <meta property="og:description" content="Guesty's MCP beta is read-only. Guesty Copilot lets your AI read and act on your Guesty account. Free and open source.">
   <meta property="og:url" content="https://guestycopilot.com/comparison.html">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
@@ -44,42 +44,46 @@
     .btn{display:inline-block;background:var(--gradient);color:#fff;text-decoration:none;padding:.9rem 1.6rem;border-radius:10px;font-weight:700}
     footer{border-top:1px solid var(--gray-100);padding:2rem 1.5rem;text-align:center;color:var(--gray-500);font-size:.85rem}
     footer a{color:var(--gray-500)}
-  </style>
+    @media (max-width: 480px) { table th, table td { padding: .55rem .45rem; font-size: .8rem; } }
+</style>
 </head>
 <body>
 <nav>
   <a class="brand" href="/">🤖 GuestyCopilot</a>
-  <a class="cta" href="/#signup">Start Free</a>
+  <a class="cta" href="/#install">Install Free</a>
 </nav>
 <div class="wrap">
   <span class="eyebrow">Compare</span>
-  <h1>GuestyCopilot vs Guesty-native AI vs Zapier</h1>
-  <p class="lead">Three ways to bring automation and AI to Guesty — and how they differ on the things that matter: which AI you can use, security, and lock-in.</p>
+  <h1>Guesty Copilot vs Guesty's MCP beta vs Zapier</h1>
+  <p class="lead">Three ways to put AI to work on your Guesty account, and how they differ on what matters: whether the AI can actually do things, which AI you can use, and what it costs.</p>
 
+  <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
   <table>
     <thead>
-      <tr><th>&nbsp;</th><th class="us">GuestyCopilot</th><th>Guesty-native AI</th><th>Zapier / Make</th></tr>
+      <tr><th>&nbsp;</th><th class="us">Guesty Copilot</th><th>Guesty MCP (beta)</th><th>Zapier / Make</th></tr>
     </thead>
     <tbody>
-      <tr><td>Use any AI assistant (Claude, ChatGPT, Cursor)</td><td class="y">Yes</td><td class="n">No — Guesty's only</td><td class="n">No</td></tr>
-      <tr><td>Reads live Guesty data</td><td class="y">Yes — 23 free tools, live now</td><td class="y">Yes</td><td class="y">Limited triggers</td></tr>
-      <tr><td>Native AI tool-calling (not fixed zaps)</td><td class="y">Yes</td><td class="y">Yes</td><td class="n">No — request/response</td></tr>
-      <tr><td>Write / take action</td><td class="n">Not yet available</td><td class="y">Yes</td><td class="y">Yes</td></tr>
-      <tr><td>OAuth2, no credential proxying</td><td class="y">Yes</td><td class="y">Yes</td><td class="n">Varies</td></tr>
-      <tr><td>No vendor lock-in</td><td class="y">Yes</td><td class="n">No</td><td class="n">No</td></tr>
-      <tr><td>Free tier</td><td class="y">Yes — 23 tools</td><td class="n">Paid</td><td class="y">Limited</td></tr>
+      <tr><td>Reads live Guesty data</td><td class="y">Yes</td><td class="y">Yes</td><td class="y">Limited triggers</td></tr>
+      <tr><td>Sends guest messages</td><td class="y">Yes</td><td class="n">No &mdash; read-only</td><td class="y">Via pre-built zaps</td></tr>
+      <tr><td>Updates pricing &amp; calendar</td><td class="y">Yes</td><td class="n">No</td><td class="y">Via pre-built zaps</td></tr>
+      <tr><td>Creates reservations, tasks, expenses</td><td class="y">Yes</td><td class="n">No</td><td class="y">Via pre-built zaps</td></tr>
+      <tr><td>AI decides what to do from a plain-English request</td><td class="y">Yes</td><td class="y">Yes (read only)</td><td class="n">No &mdash; fixed workflows</td></tr>
+      <tr><td>Use the AI app you choose</td><td class="y">Yes &mdash; any MCP client</td><td class="y">Yes &mdash; any MCP client</td><td class="n">No</td></tr>
+      <tr><td>Release status</td><td class="y">Versioned releases on npm</td><td class="n">Beta, "do not rely on it for any production use"</td><td class="y">Stable</td></tr>
+      <tr><td>Price</td><td class="y">Free, MIT</td><td class="y">Free during beta</td><td class="n">Paid plans for volume</td></tr>
     </tbody>
   </table>
+  </div>
 
-  <div class="note"><strong>Honest status:</strong> GuestyCopilot's <strong>23 read-only tools are live and free today</strong>. Write/action (the Pro tier) and Enterprise IoT (4 tools) are <strong>not yet available</strong>. So today GuestyCopilot is the open, bring-your-own-AI way to <em>read</em> Guesty; full action is planned for a Pro tier and is not yet available.</p></div>
+  <div class="note"><strong>Where the Guesty column comes from:</strong> <a href="https://open-api-docs.guesty.com/docs/guesty-mcp-server-beta">Guesty's MCP server documentation</a> (updated August 22, 2026), which states that during the beta all tools are read-only and write operations are not available.</div>
 
   <h2 style="font-size:1.4rem;margin:2.2rem 0 .8rem;color:var(--dark)">The core difference</h2>
-  <p>Guesty-native AI locks you into Guesty's own assistant. Zapier gives you rigid, pre-built automations. GuestyCopilot is the <strong>only Guesty MCP server</strong> — it lets the AI assistant <em>you</em> choose reason over your live Guesty data, with OAuth2 security and zero lock-in.</p>
+  <p>Guesty's beta lets your AI look. Zapier runs fixed recipes you build in advance. Guesty Copilot lets the AI you already use read your Guesty account <em>and act on it</em> &mdash; reply to a guest, change a rate, block dates, create a task &mdash; from one plain-English request.</p>
 
-  <div class="cta-row"><a class="btn" href="/#signup">Start free — connect your AI →</a></div>
+  <div class="cta-row"><a class="btn" href="/#install">Install free &rarr;</a></div>
 </div>
 <footer>
-  <p>&copy; 2026 GuestyCopilot. The first &amp; only MCP server for Guesty. · <a href="/">Home</a></p>
+  <p>&copy; 2026 DLJ Properties. Guesty Copilot: the free, open-source Guesty MCP server that takes action. · <a href="/">Home</a></p>
   <p>Not affiliated with or endorsed by Guesty, Inc.</p>
 </footer>
 </body>

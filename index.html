@@ -11,8 +11,8 @@
     gtag('config', 'G-RHX3LPSWFM');
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guesty Copilot | AI Guest Management for Short-Term Rental Hosts</title>
-  <meta name="description" content="Connect any AI assistant to Guesty. 23 free read-only MCP tools, available now. No license key required. Read reservations, listings & guest messages. OAuth2 secure. Setup in under 10 minutes.">
+  <title>Guesty Copilot | The Guesty MCP Server That Takes Action</title>
+  <meta name="description" content="Free, open-source MCP server for Guesty with 43 tools, read and write. Let Claude, Cursor or any MCP client reply to guests, update pricing and calendars, and create reservations and tasks. Guesty's official MCP is read-only.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1104,6 +1104,7 @@
       .hero h1 { font-size: 2rem; }
       .platform-logos { gap: 1.25rem; }
     }
+      code { background: var(--gray-100); padding: 0 .3em; border-radius: 4px; font-size: .9em; }
   </style>
 </head>
 <body>
@@ -1114,12 +1115,11 @@
       <a href="#" class="nav-logo">Guesty <span>Copilot</span></a>
       <div class="nav-links">
         <a href="#how-it-works">How It Works</a>
-        <a href="#features">Features</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#enterprise">Enterprise</a>
-        <a href="#results">Results</a>
+        <a href="#compare">Compare</a>
+        <a href="#features">What You Can Ask</a>
+        <a href="#install">Install</a>
         <a href="#faq">FAQ</a>
-        <a href="#signup" class="nav-cta">Join the Waitlist</a>
+        <a href="#signup" class="nav-cta">Hosted Early Access</a>
       </div>
       <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -1128,430 +1128,207 @@
   </nav>
   <div class="mobile-menu">
     <a href="#how-it-works" onclick="this.parentElement.classList.remove('open')">How It Works</a>
-    <a href="#features" onclick="this.parentElement.classList.remove('open')">Features</a>
-    <a href="#pricing" onclick="this.parentElement.classList.remove('open')">Pricing</a>
-    <a href="#enterprise" onclick="this.parentElement.classList.remove('open')">Enterprise IoT</a>
-    <a href="#results" onclick="this.parentElement.classList.remove('open')">Results</a>
+    <a href="#compare" onclick="this.parentElement.classList.remove('open')">Compare</a>
+    <a href="#features" onclick="this.parentElement.classList.remove('open')">What You Can Ask</a>
+    <a href="#install" onclick="this.parentElement.classList.remove('open')">Install</a>
     <a href="#faq" onclick="this.parentElement.classList.remove('open')">FAQ</a>
-    <a href="#signup" onclick="this.parentElement.classList.remove('open')" style="color: var(--primary); font-weight: 700;">Join the Waitlist</a>
+    <a href="#signup" onclick="this.parentElement.classList.remove('open')" style="color: var(--primary); font-weight: 700;">Hosted Early Access</a>
   </div>
 
   <!-- MOBILE STICKY CTA -->
   <div class="mobile-sticky-cta">
-    <a href="#signup">Join the Waitlist</a>
+    <a href="#install">Install Free</a>
   </div>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-badge">Free read-only tier available now &mdash; paid tiers are not yet available</div>
+    <div class="hero-badge">Free &amp; open source &mdash; 43 tools, read <strong>and</strong> write</div>
     <div class="hero-badges">
       <a href="https://www.npmjs.com/package/guesty-mcp-server" target="_blank"><img src="https://img.shields.io/npm/v/guesty-mcp-server" alt="npm version"></a>
       <a href="https://www.npmjs.com/package/guesty-mcp-server" target="_blank"><img src="https://img.shields.io/npm/dw/guesty-mcp-server" alt="npm downloads"></a>
     </div>
-    <h1>Connect Any AI to Guesty — in Minutes, <span class="gradient-text">Not Weeks</span></h1>
-    <p>Connect any AI assistant to your Guesty account. 23 free read-only MCP tools, available now &mdash; no license key, nothing to configure. Give your AI live, context-aware visibility into every reservation, listing, and guest thread.</p>
-    <div class="hero-setup">Setup takes under 10 minutes</div>
+    <h1>The Guesty MCP server that <span class="gradient-text">takes action</span></h1>
+    <p>Guesty's official MCP server is a read-only beta: your AI can look things up, but it can't do anything. Guesty Copilot lets Claude, Cursor and any MCP client do the work &mdash; reply to guests, adjust prices and availability, create tasks and reservations, and pull owner statements, straight from your Guesty account.</p>
+    <div class="hero-setup">Free, MIT-licensed, set up in about ten minutes</div>
     <div class="hero-ctas">
-      <a href="#signup" class="btn-primary">Join the Waitlist</a>
-      <a href="#how-it-works" class="btn-secondary">See How It Works</a>
+      <a href="#install" class="btn-primary">Install Free</a>
+      <a href="#compare" class="btn-secondary">Compare with Guesty's MCP</a>
     </div>
     <div class="platform-logos">
-      <span class="platform-logo">AIRBNB</span>
-      <span class="platform-logo">VRBO</span>
-      <span class="platform-logo">BOOKING.COM</span>
-      <span class="platform-logo">GUESTY</span>
-      <span class="platform-logo">DIRECT BOOKINGS</span>
+      <span class="platform-logo">CLAUDE</span>
+      <span class="platform-logo">CURSOR</span>
+      <span class="platform-logo">VS CODE</span>
+      <span class="platform-logo">ANY MCP CLIENT</span>
     </div>
   </section>
-
-  <!-- WHAT'S NEW -->
-  <div class="whats-new">
-    <div class="whats-new-inner">
-      <span class="whats-new-tag">Planned</span>
-      <span class="whats-new-text">Planned: IoT property monitoring &mdash; Tuya, Google Nest, SmartThings. <a href="#enterprise">Learn more</a></span>
-    </div>
-  </div>
 
   <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stats-inner">
       <div>
-        <div class="stat-number">Hundreds</div>
-        <div class="stat-label">Conversations Handled</div>
+        <div class="stat-number">43</div>
+        <div class="stat-label">Tools</div>
       </div>
       <div>
-        <div class="stat-number">&lt;2 min</div>
-        <div class="stat-label">Avg Response Time</div>
+        <div class="stat-number">Read + Write</div>
+        <div class="stat-label">Not just lookups</div>
       </div>
       <div>
-        <div class="stat-number">24/7</div>
-        <div class="stat-label">Always Online</div>
+        <div class="stat-number">$0</div>
+        <div class="stat-label">MIT licensed</div>
       </div>
       <div>
-        <div class="stat-number">23</div>
-        <div class="stat-label">Free Tools, Live Now</div>
-      </div>
-      <div>
-        <div class="stat-number">First &amp; Only</div>
-        <div class="stat-label">MCP Server for Guesty</div>
+        <div class="stat-number">Your keys</div>
+        <div class="stat-label">Runs on your machine</div>
       </div>
     </div>
-    <div style="text-align:center;margin-top:1rem;font-size:.85rem;color:var(--gray-500);opacity:.85">Production metrics from our own active Superhost short-term-rental portfolio.</div>
   </div>
-
-  <!-- PROBLEM -->
-  <section class="problem">
-    <div class="section-inner">
-      <div class="section-label">The Problem</div>
-      <div class="section-title">Guest messages don't wait for business hours</div>
-      <div class="section-subtitle">Every hour without a reply costs you reviews, bookings, and revenue.</div>
-      <div class="problem-grid">
-        <div class="problem-card">
-          <div class="problem-icon">&#9203;</div>
-          <h3>Slow Response = Bad Reviews</h3>
-          <p>Guests expect replies within minutes. A multi-hour response gap can drop your rating significantly.</p>
-        </div>
-        <div class="problem-card">
-          <div class="problem-icon">&#127769;</div>
-          <h3>Nights & Weekends Uncovered</h3>
-          <p>The majority of guest questions arrive outside business hours. Without coverage, you're losing bookings to faster hosts.</p>
-        </div>
-        <div class="problem-card">
-          <div class="problem-icon">&#128200;</div>
-          <h3>Doesn't Scale</h3>
-          <p>Managing a few properties manually is hard. At 10+ properties, it's impossible without a team or AI.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- HOW IT WORKS -->
   <section id="how-it-works">
     <div class="section-inner">
       <div class="section-label">How It Works</div>
-      <div class="section-title">Three steps to 24/7 guest coverage</div>
-      <div class="section-subtitle">Connect your Guesty account and let AI handle the rest.</div>
+      <div class="section-title">Three steps from install to action</div>
+      <div class="section-subtitle">No account with us. No license key. Your Guesty credentials stay on your computer.</div>
       <div class="steps">
         <div class="step">
           <div class="step-number">1</div>
-          <h3>Connect Guesty</h3>
-          <p>Link your Guesty account with OAuth2. We read your listings, reservations, and guest history to understand your properties.</p>
+          <h3>Get your Guesty API keys</h3>
+          <p>Create an Open API client ID and secret in your Guesty account. API access depends on your Guesty plan.</p>
         </div>
         <div class="step">
           <div class="step-number">2</div>
-          <h3>AI Learns Your Voice</h3>
-          <p>Our agent studies your past replies, property details, house rules, and local recommendations to match your hosting style.</p>
+          <h3>Add it to your AI app</h3>
+          <p>Paste a few lines into Claude Desktop, Claude Code, Cursor or VS Code. The server starts automatically with <code>npx</code>.</p>
         </div>
         <div class="step">
           <div class="step-number">3</div>
-          <h3>Your AI Reads &amp; Drafts the Reply</h3>
-          <p>Today, your AI reads each incoming message and drafts a context-aware response in seconds &mdash; you review and send. Full autopilot (auto-send in under 2 minutes) is part of the planned Pro tier, which is not yet available. You're always in control.</p>
+          <h3>Ask in plain English</h3>
+          <p>"Reply to tonight's arrivals with parking info." "Block the lake house Dec 24&ndash;26." Your AI reads Guesty and makes the change.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section id="compare" class="comparison">
+    <div class="section-inner">
+      <div class="section-label">Compare</div>
+      <div class="section-title">Guesty Copilot vs. Guesty's official MCP (beta)</div>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="highlight-col">Guesty Copilot</th>
+            <th>Guesty MCP (beta)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Read reservations, listings, guests, calendar</td><td class="highlight-col"><span class="check">Yes</span></td><td><span class="check">Yes</span></td></tr>
+          <tr><td>Send guest messages</td><td class="highlight-col"><span class="check">Yes</span></td><td><span class="cross">No &mdash; read-only</span></td></tr>
+          <tr><td>Update pricing &amp; calendar</td><td class="highlight-col"><span class="check">Yes</span></td><td><span class="cross">No</span></td></tr>
+          <tr><td>Create &amp; update reservations</td><td class="highlight-col"><span class="check">Yes</span></td><td><span class="cross">No</span></td></tr>
+          <tr><td>Tasks, expenses, reservation notes</td><td class="highlight-col"><span class="check">Yes</span></td><td><span class="cross">No</span></td></tr>
+          <tr><td>Webhooks</td><td class="highlight-col"><span class="check">Yes</span></td><td><span class="cross">No</span></td></tr>
+          <tr><td>Release status</td><td class="highlight-col"><span class="check">Versioned releases on npm</span></td><td><span class="partial">Beta &mdash; "do not rely on it for any production use"</span></td></tr>
+          <tr><td>Price</td><td class="highlight-col"><span class="check">Free, MIT</span></td><td><span class="check">Free during beta</span></td></tr>
+        </tbody>
+      </table>
+      <p style="text-align:center;margin-top:1rem;font-size:.85rem;color:var(--gray-500)">Guesty column based on <a href="https://open-api-docs.guesty.com/docs/guesty-mcp-server-beta" target="_blank">Guesty's public documentation</a> (updated August 22, 2026).</p>
     </div>
   </section>
 
   <!-- FEATURES -->
   <section id="features" style="background: var(--gray-100);">
     <div class="section-inner">
-      <div class="section-label">Features</div>
-      <div class="section-title">Everything your guest communication needs</div>
+      <div class="section-label">What You Can Ask</div>
+      <div class="section-title">Real work, not just reports</div>
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">&#128172;</div>
-          <h3>Context-Aware Replies</h3>
-          <p>AI reads the full conversation thread, reservation details, property info, and house rules before responding. No generic answers.</p>
+          <h3>Answer guests</h3>
+          <p>"Reply to the guest in the Loft asking about early check-in." Your AI reads the thread and reservation, then sends the reply through Guesty.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">&#9889;</div>
-          <h3>Sub-2-Minute Response Time</h3>
-          <p>Guests get accurate answers within minutes of sending a message, day or night. Faster than any virtual assistant.</p>
+          <div class="feature-icon">&#128181;</div>
+          <h3>Adjust pricing</h3>
+          <p>"Which listings are under half booked next month? Drop those weekends by 10%." Occupancy in, new rates out.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">&#128274;</div>
-          <h3>Host Review Mode</h3>
-          <p>Choose to review AI drafts before they send, or enable full autopilot. You decide the level of control.</p>
+          <div class="feature-icon">&#128197;</div>
+          <h3>Manage the calendar</h3>
+          <p>"Block the lake house December 24&ndash;26 for maintenance." Availability updated without opening the dashboard.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">&#128218;</div>
-          <h3>Learns From You</h3>
-          <p>The AI improves with every interaction. It learns your preferred tone, local tips, and how you handle edge cases.</p>
+          <div class="feature-icon">&#129529;</div>
+          <h3>Dispatch tasks</h3>
+          <p>"Create a cleaning task after tomorrow's checkout at Unit 4." Tasks, expenses and reservation notes, created on request.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">&#128680;</div>
-          <h3>Smart Escalation</h3>
-          <p>Maintenance emergencies, complaints, and complex requests get routed to you instantly. AI handles the rest.</p>
+          <div class="feature-icon">&#128202;</div>
+          <h3>Owner and revenue reporting</h3>
+          <p>"What did each owner earn last month?" Owner statements, revenue summaries and reservation financials on demand.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">&#127760;</div>
-          <h3>Multi-Channel Support</h3>
-          <p>Works across Airbnb, VRBO, Booking.com, and direct bookings &mdash; anywhere Guesty receives messages.</p>
+          <div class="feature-icon">&#11088;</div>
+          <h3>Stay on top of reviews</h3>
+          <p>"Which reviews from this week still need a response?" Pull reviews across channels and draft the replies.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MID CTA (after features) -->
-  <div class="mid-cta">
-    <a href="#signup" class="btn-primary">Join the Waitlist</a>
+  <!-- INSTALL -->
+  <div id="install" class="install-section">
+    <div class="section-label">Open Source</div>
+    <div class="section-title">Install free</div>
+    <div class="section-subtitle">Add this to your MCP client's config (for Claude Desktop: Settings &rarr; Developer &rarr; Edit Config), then restart it.</div>
+    <pre class="install-command" id="installCmd" style="text-align:left;white-space:pre;overflow-x:auto;max-width:640px;margin:0 auto">{
+  "mcpServers": {
+    "guesty": {
+      "command": "npx",
+      "args": ["-y", "guesty-mcp-server"],
+      "env": {
+        "GUESTY_CLIENT_ID": "your-client-id",
+        "GUESTY_CLIENT_SECRET": "your-client-secret"
+      }
+    }
+  }
+}</pre>
+    <div style="text-align:center;margin-top:1rem"><button class="install-copy-btn" onclick="copyInstall()">Copy config</button></div>
+    <div class="install-links">
+      <a href="https://www.npmjs.com/package/guesty-mcp-server" target="_blank">npmjs.com/package/guesty-mcp-server</a>
+      <a href="https://github.com/DLJRealty/guesty-mcp-server" target="_blank">GitHub Repository</a>
+      <a href="https://registry.modelcontextprotocol.io" target="_blank">MCP Registry</a>
+    </div>
   </div>
 
-  <!-- COMPARISON TABLE -->
-  <section class="comparison">
+  <!-- HOSTED EARLY ACCESS -->
+  <section id="signup" class="cta-section">
     <div class="section-inner">
-      <div class="section-label">Compare</div>
-      <div class="section-title">AI agent vs. the alternatives</div>
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th></th>
-            <th class="highlight-col">Guesty Copilot</th>
-            <th>Virtual Assistant</th>
-            <th>DIY / Manual</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>24/7 coverage</td>
-            <td class="highlight-col"><span class="check">Yes</span></td>
-            <td><span class="partial">Limited</span></td>
-            <td><span class="cross">No</span></td>
-          </tr>
-          <tr>
-            <td>Response time</td>
-            <td class="highlight-col"><span class="check">&lt;2 minutes</span></td>
-            <td><span class="partial">15-60 min</span></td>
-            <td><span class="cross">Hours</span></td>
-          </tr>
-          <tr>
-            <td>Knows your properties</td>
-            <td class="highlight-col"><span class="check">Deeply</span></td>
-            <td><span class="partial">With training</span></td>
-            <td><span class="check">Yes</span></td>
-          </tr>
-          <tr>
-            <td>Scales with portfolio</td>
-            <td class="highlight-col"><span class="check">Unlimited</span></td>
-            <td><span class="partial">Expensive</span></td>
-            <td><span class="cross">No</span></td>
-          </tr>
-          <tr>
-            <td>Learns & improves</td>
-            <td class="highlight-col"><span class="check">Continuously</span></td>
-            <td><span class="cross">High turnover</span></td>
-            <td><span class="cross">No</span></td>
-          </tr>
-          <tr>
-            <td>Cost per property</td>
-            <td class="highlight-col"><span class="check">From $25/mo</span></td>
-            <td><span class="partial">$200-500/mo</span></td>
-            <td><span class="partial">Your time</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- BETA BANNER (moved ABOVE pricing) -->
-  <div class="beta-banner">
-    <h3>The free read-only tier is available now</h3>
-    <p>23 read-only tools, no license key and no signup required. Join the waitlist for the paid answering tiers.</p>
-  </div>
-
-  <!-- PRICING -->
-  <section id="pricing" class="pricing">
-    <div class="section-inner">
-      <div class="pricing-header">
-        <div class="section-label">Planned pricing &mdash; not yet available</div>
-        <div class="section-title">Simple, per-property pricing</div>
-        <div class="section-subtitle" style="margin: 0 auto;">Start free today with read-only access &mdash; 23 tools, no key required. The paid answering plans below are not yet available; join the waitlist and we'll let you know when they are. No setup fees, no contracts, cancel anytime.</div>
-      </div>
-      <div class="pricing-grid">
-        <!-- Tier 1 -->
-        <div class="pricing-card">
-          <div class="pricing-name">Smart Responder</div>
-          <div class="pricing-desc">AI answers 24/7. You review and approve before sending.</div>
-          <div class="pricing-amount">
-            <span class="pricing-dollar">$49</span>
-            <span class="pricing-period">/mo</span>
-          </div>
-          <div class="pricing-unit">per property</div>
-          <div class="pricing-beta-tag">Not yet available</div>
-          <ul class="pricing-features">
-            <li>24/7 AI guest replies</li>
-            <li>Host review before sending</li>
-            <li>Context-aware responses</li>
-            <li>Reservation-specific answers</li>
-            <li>Multi-channel support</li>
-            <li>Email notifications</li>
-          </ul>
-          <a href="#signup" class="pricing-btn pricing-btn-outline">Join the Waitlist</a>
+      <div class="section-label">Coming Soon</div>
+      <div class="section-title">Hosted Guesty Copilot &mdash; early access</div>
+      <div class="section-subtitle" style="margin: 0 auto;">Nothing to install. Connect Guesty once and use it from the Claude and ChatGPT apps on the web and your phone, with team logins, an approval step before any change, and ready-made workflows for guest replies, owner statements and pricing reviews. Join the list to be first in.</div>
+      <form class="signup-form" id="betaForm" onsubmit="handleSignup(event)">
+        <div class="signup-row">
+          <input type="email" id="emailInput" placeholder="Enter your email address" required>
         </div>
-        <!-- Tier 2 (Featured) -->
-        <div class="pricing-card featured">
-          <div class="pricing-popular">Most Popular</div>
-          <div class="pricing-name">Autonomous Host</div>
-          <div class="pricing-desc">Full autopilot. AI sends replies instantly. Escalation only when needed.</div>
-          <div class="pricing-amount">
-            <span class="pricing-dollar">$99</span>
-            <span class="pricing-period">/mo</span>
-          </div>
-          <div class="pricing-unit">per property</div>
-          <div class="pricing-beta-tag">Not yet available</div>
-          <ul class="pricing-features">
-            <li>Everything in Smart Responder</li>
-            <li>Full autopilot mode</li>
-            <li>Learns from your past replies</li>
-            <li>Smart escalation routing</li>
-            <li>Tone & style matching</li>
-            <li>Priority support</li>
-          </ul>
-          <a href="#signup" class="pricing-btn pricing-btn-primary">Join the Waitlist</a>
+        <div class="signup-row">
+          <select id="propertyCount" required>
+            <option value="" disabled selected>How many listings do you manage?</option>
+            <option value="1-3">1-3 listings</option>
+            <option value="4-10">4-10 listings</option>
+            <option value="11-25">11-25 listings</option>
+            <option value="26-50">26-50 listings</option>
+            <option value="51-200">51-200 listings</option>
+            <option value="200+">200+ listings</option>
+          </select>
         </div>
-        <!-- Tier 3 -->
-        <div class="pricing-card">
-          <div class="pricing-name">Full AI Property Manager</div>
-          <div class="pricing-desc">Complete AI operations. Guest comms, reporting, and coordination.</div>
-          <div class="pricing-amount">
-            <span class="pricing-dollar">$199</span>
-            <span class="pricing-period">/mo</span>
-          </div>
-          <div class="pricing-unit">per property</div>
-          <div class="pricing-beta-tag">Not yet available</div>
-          <ul class="pricing-features">
-            <li>Everything in Autonomous Host</li>
-            <li>Revenue & occupancy reports</li>
-            <li>Cleaning crew coordination</li>
-            <li>Multi-channel optimization</li>
-            <li>Review response automation</li>
-            <li>Dedicated account manager</li>
-          </ul>
-          <a href="#signup" class="pricing-btn pricing-btn-outline">Join the Waitlist</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ENTERPRISE IOT TIER -->
-  <section id="enterprise" class="enterprise-section">
-    <div class="enterprise-inner">
-      <div class="enterprise-header">
-        <div class="enterprise-tag">On the roadmap</div>
-        <div class="section-label" style="color: var(--accent);">Enterprise</div>
-        <div class="section-title">IoT-Powered Property Intelligence</div>
-        <div class="section-subtitle" style="margin: 0 auto;">Go beyond guest messaging. Monitor every device, verify turnover readiness, and catch damage before it becomes a dispute &mdash; all from one AI copilot. Enterprise IoT monitoring is planned and not yet available.</div>
-      </div>
-      <div class="enterprise-layout">
-        <div class="enterprise-features">
-          <div class="enterprise-feature">
-            <div class="enterprise-feature-icon">&#128225;</div>
-            <div>
-              <h4>Property Health Monitoring</h4>
-              <p>Real-time IoT device status across your entire portfolio. Know instantly when a thermostat goes offline, a lock battery is low, or a sensor triggers an alert.</p>
-            </div>
-          </div>
-          <div class="enterprise-feature">
-            <div class="enterprise-feature-icon">&#127919;</div>
-            <div>
-              <h4>Physical Readiness Score</h4>
-              <p>AI generates a 0-100 readiness score before every check-in. Verifies HVAC, locks, lights, and WiFi are operational so your guest arrives to a perfect property.</p>
-            </div>
-          </div>
-          <div class="enterprise-feature">
-            <div class="enterprise-feature-icon">&#128247;</div>
-            <div>
-              <h4>Checkout Photo Analysis</h4>
-              <p>AI-powered damage detection compares checkout photos against baseline images. Flags anomalies, generates incident reports, and protects your security deposit claims.</p>
-            </div>
-          </div>
-          <div class="enterprise-feature">
-            <div class="enterprise-feature-icon">&#128296;</div>
-            <div>
-              <h4>Automated Maintenance Alerts</h4>
-              <p>IoT sensors detect issues before guests notice them. Water leaks, temperature anomalies, noise violations &mdash; automatically routed to your maintenance team.</p>
-            </div>
-          </div>
-        </div>
-        <div class="enterprise-pricing-card">
-          <div class="pricing-popular">Enterprise</div>
-          <div class="pricing-name" style="margin-top: 0.5rem;">IoT Property Manager</div>
-          <div class="pricing-desc">Everything in Full AI Property Manager, plus complete IoT integration and property intelligence.</div>
-          <div class="pricing-amount" style="justify-content: center;">
-            <span class="pricing-dollar">$299</span>
-            <span class="pricing-period">/mo</span>
-          </div>
-          <div class="pricing-unit">per property</div>
-          <div class="enterprise-platforms">
-            <span class="enterprise-platform">Tuya</span>
-            <span class="enterprise-platform">Google Nest</span>
-            <span class="enterprise-platform">SmartThings</span>
-          </div>
-          <ul class="pricing-features" style="text-align: left;">
-            <li>Everything in Full AI PM</li>
-            <li>Real-time device monitoring</li>
-            <li>Pre-check-in readiness score</li>
-            <li>AI checkout photo analysis</li>
-            <li>Automated maintenance alerts</li>
-            <li>IoT sensor integrations</li>
-            <li>Property health dashboard</li>
-            <li>Dedicated enterprise support</li>
-          </ul>
-          <a href="#signup" class="pricing-btn pricing-btn-enterprise">Contact Sales</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- THE MOAT -->
-  <section class="moat">
-    <div class="section-inner">
-      <div class="section-label">Why We're Different</div>
-      <div class="section-title">Trained by the best of the best</div>
-      <div class="moat-text">
-        <strong>Trained on 3+ years of real guest interactions from a multi-year Airbnb Superhost.</strong> This AI learned hospitality from the best of the best &mdash; not a template, not a FAQ bot. Every response carries the expertise of hundreds of five-star stays.<br><br>
-        Check-in questions, maintenance requests, local recommendations, noise complaints, late checkouts &mdash; it's seen it all. Every edge case you can imagine, and dozens you can't.<br><br>
-        <strong>Running live on our own active Superhost portfolio across multiple markets.</strong> Hundreds of guest conversations handled with AI assistance, a 4.9+ average rating across our portfolio's guest reviews, and Superhost status maintained year after year.
-      </div>
-    </div>
-  </section>
-
-  <!-- SOCIAL PROOF / RESULTS -->
-  <section id="results" class="social-proof">
-    <div class="section-inner">
-      <div class="section-label">Real Results</div>
-      <div class="section-title">Battle-tested on live properties</div>
-      <div class="section-subtitle">These aren't projections. This is production data from our own short-term rental portfolio.</div>
-      <div class="proof-grid">
-        <div class="proof-card">
-          <div class="proof-value">Hundreds</div>
-          <p>Guest conversations handled with AI assistance and zero complaints about response quality.</p>
-        </div>
-        <div class="proof-card">
-          <div class="proof-value">4.9+</div>
-          <p>Average guest rating across our portfolio's guest reviews. Superhost status maintained.</p>
-        </div>
-        <div class="proof-card">
-          <div class="proof-value">98%</div>
-          <p>Of guest messages handled with AI assistance in our own portfolio. Only true emergencies get escalated.</p>
-        </div>
-        <div class="proof-card">
-          <div class="proof-value">23 Free</div>
-          <p>Read-only tools live now on the Guesty MCP Server &mdash; reservations, listings, guest messages, financials, and more.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIAL -->
-  <section class="testimonial">
-    <div class="section-inner">
-      <div class="section-label">From Our Portfolio</div>
-      <div class="section-title">What hands-off hosting feels like</div>
-      <div class="testimonial-card">
-        <div class="testimonial-text">"I used to wake up to a dozen unread guest messages every morning. Now I wake up to zero &mdash; because they've already been answered. My review scores went up and my stress went down."</div>
-        <div class="testimonial-author">Danny Perez, Founder</div>
-        <div class="testimonial-role">DLJ Properties &bull; Multi-Market STR Portfolio</div>
-      </div>
+        <button type="submit">Get Early Access</button>
+      </form>
+      <div class="signup-note">No credit card. The free open-source server stays free.</div>
+      <div class="signup-error" id="errorMsg" style="display:none;background:#3a1414;border:1px solid #a33;color:#ffb4b4;padding:14px 18px;border-radius:10px;margin-top:14px;font-weight:600;">That didn't send &mdash; we did not receive your details. Please email <a href="mailto:guestycopilot@gmail.com" style="color:#fff">guestycopilot@gmail.com</a> instead.</div>
+      <div class="signup-success" id="successMsg">You're on the list. We'll be in touch before launch.</div>
     </div>
   </section>
 
@@ -1562,101 +1339,40 @@
       <div class="section-title">Common questions</div>
       <div class="faq-grid">
         <div class="faq-item open">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Does it work with Airbnb, VRBO, and Booking.com?</div>
-          <div class="faq-answer">Yes. It works with every channel Guesty supports &mdash; including Airbnb, VRBO, Booking.com, and your direct booking website. Today your AI can read and draft from any of those conversations. Autonomous answering is part of the planned Pro tier and is not yet available.</div>
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">How is this different from Guesty's own MCP server?</div>
+          <div class="faq-answer">Guesty's server is in beta and read-only: your AI can look up and summarize data but cannot create, update or delete anything. Guesty Copilot can also act &mdash; send guest messages, change pricing and availability, create reservations, tasks and expenses.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Can I review messages before they're sent to guests?</div>
-          <div class="faq-answer">Absolutely &mdash; and you're always in control. The paid answering plans are not yet available. As planned: with Smart Responder you review and approve every AI draft before it sends; with Autonomous Host the AI sends instantly (switch to review mode anytime). Today's free tier is read-only, so nothing is sent to guests without you.</div>
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Is it really free?</div>
+          <div class="faq-answer">Yes. The server is MIT-licensed open source and all 43 tools are free. The upcoming hosted version is a separate paid service for people who don't want to install anything; the open-source server stays free.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">What happens with emergencies or complex issues?</div>
-          <div class="faq-answer">Our AI has smart escalation built in. Maintenance emergencies, guest complaints, safety issues, and anything it's not confident about gets routed to you immediately via your preferred notification method. The AI acknowledges the guest and lets them know a human is on it.</div>
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Is it safe to let an AI change my Guesty account?</div>
+          <div class="faq-answer">The server runs on your own computer with your own Guesty API credentials, which never pass through us. MCP clients such as Claude Desktop ask you to approve tool calls before they run, so you see each change before it happens.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">How long does setup take?</div>
-          <div class="faq-answer">Under 10 minutes. Connect your Guesty account, and our AI automatically pulls your property details, house rules, and past conversations. It starts learning your hosting style immediately and can go live the same day.</div>
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Which AI apps does it work with?</div>
+          <div class="faq-answer">Any app that supports MCP servers running locally: Claude Desktop, Claude Code, Cursor, VS Code and others. The hosted version will add the Claude and ChatGPT web and mobile apps.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Can I cancel anytime?</div>
-          <div class="faq-answer">Yes. No contracts, no cancellation fees. Cancel with one click. If you're a beta customer with the 50% lifetime discount, your discount stays locked in as long as you remain subscribed.</div>
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">What do I need from Guesty?</div>
+          <div class="faq-answer">An Open API client ID and secret from your Guesty account. Open API access depends on your Guesty plan.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Is my Guesty data secure?</div>
-          <div class="faq-answer">Your API credentials are encrypted with AES-256 at rest and never exposed. Each customer's data is completely isolated. We never share or sell your data. Your guest conversations stay between you and your guests.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">What IoT devices does the Enterprise tier support?</div>
-          <div class="faq-answer">The Enterprise IoT tier currently supports Tuya, Google Nest, and Samsung SmartThings ecosystems. This covers smart locks, thermostats, noise monitors, water leak sensors, and more. We're continuously adding new integrations based on customer demand.</div>
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Who makes it?</div>
+          <div class="faq-answer">DLJ Properties, a short-term-rental operator that built it to run its own portfolio. It is independent and not affiliated with or endorsed by Guesty, Inc.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECURITY BLURB -->
-  <div style="padding: 0 2rem 4rem; background: var(--white);">
-    <div class="security-blurb">
-      <div class="security-item">&#128274; AES-256 Encryption</div>
-      <div class="security-item">&#128272; Isolated Per-Customer Data</div>
-      <div class="security-item">&#128737; OAuth2 Authentication</div>
-      <div class="security-item">&#9989; HTTPS Everywhere</div>
-    </div>
-  </div>
-
-  <!-- CTA / SIGNUP -->
-  <section id="signup" class="cta-section">
-    <div class="section-inner">
-      <div class="section-label">Get Started</div>
-      <div class="section-title">Stop losing bookings to slow replies</div>
-      <div class="section-subtitle" style="margin: 0 auto;">Join the beta and get AI guest management running on your properties.</div>
-      <form class="signup-form" id="betaForm" onsubmit="handleSignup(event)">
-        <div class="signup-row">
-          <input type="email" id="emailInput" placeholder="Enter your email address" required>
-        </div>
-        <div class="signup-row">
-          <select id="propertyCount" required>
-            <option value="" disabled selected>How many properties?</option>
-            <option value="1-3">1-3 properties</option>
-            <option value="4-10">4-10 properties</option>
-            <option value="11-25">11-25 properties</option>
-            <option value="26-50">26-50 properties</option>
-            <option value="50+">50+ properties</option>
-          </select>
-        </div>
-        <button type="submit">Join the Waitlist</button>
-      </form>
-      <div class="signup-note">No credit card required. We'll reach out within 24 hours.</div>
-      <div class="signup-error" id="errorMsg" style="display:none;background:#3a1414;border:1px solid #a33;color:#ffb4b4;padding:14px 18px;border-radius:10px;margin-top:14px;font-weight:600;">That didn't send &mdash; we did not receive your details. Please email us directly at <a href="mailto:guestycopilot@gmail.com" style="color:#fff;text-decoration:underline;">guestycopilot@gmail.com</a>.</div>
-      <div class="signup-success" id="successMsg">You're in! We'll reach out within 24 hours.</div>
-    </div>
-  </section>
-
-  <!-- INSTALL NOW CTA -->
-  <div class="install-section">
-    <div class="section-label">Open Source</div>
-    <div class="section-title">Install the MCP Server Now</div>
-    <div class="section-subtitle">23 free read-only tools live now. Open source. Works with Claude, ChatGPT, and any MCP-compatible client.</div>
-    <div class="install-box">
-      <input type="text" class="install-command" value="npm install guesty-mcp-server" readonly id="installCmd">
-      <button class="install-copy-btn" onclick="copyInstall()">Copy</button>
-    </div>
-    <div class="install-links">
-      <a href="https://www.npmjs.com/package/guesty-mcp-server" target="_blank">npmjs.com/package/guesty-mcp-server</a>
-      <a href="https://github.com/DLJRealty/guesty-mcp-server" target="_blank">GitHub Repository</a>
-      <a href="https://registry.modelcontextprotocol.io" target="_blank">MCP Registry</a>
-    </div>
-  </div>
-
   <!-- FOOTER -->
   <footer>
     <div class="footer-links">
-      <a href="https://tinyhomeboutiques.com" target="_blank">DLJ Properties</a>
+      <a href="https://github.com/DLJRealty/guesty-mcp-server" target="_blank">GitHub</a>
+      <a href="https://www.npmjs.com/package/guesty-mcp-server" target="_blank">npm</a>
       <a href="mailto:guestycopilot@gmail.com">Contact</a>
       <a href="#faq">FAQ</a>
-      <a href="#pricing">Pricing</a>
-    </div>
-    <div class="footer-os">
-      Built on the <a href="https://github.com/DLJRealty/guesty-mcp-server" target="_blank">Guesty MCP Server</a> &mdash; 23 free read-only tools live now &bull; <a href="https://www.npmjs.com/package/guesty-mcp-server" target="_blank">npm</a> &bull; <a href="https://github.com/DLJRealty/guesty-mcp-server" target="_blank">GitHub</a> &bull; <a href="https://registry.modelcontextprotocol.io" target="_blank">MCP Registry</a>
     </div>
     <p>&copy; 2026 DLJ Properties. All rights reserved.</p>
     <p style="font-size:.8rem;opacity:.7;margin-top:.4rem">Not affiliated with or endorsed by Guesty, Inc. "Guesty" is a trademark of its respective owner; used here only to describe compatibility.</p>
@@ -1671,67 +1387,52 @@
       const success = document.getElementById('successMsg');
       const error = document.getElementById('errorMsg');
       const btn = form.querySelector('button');
-
       btn.textContent = 'Submitting...';
       btn.disabled = true;
-
       fetch('https://formsubmit.co/ajax/guestycopilot@gmail.com', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
           email: email,
-          properties: properties,
-          _subject: 'AI Guest Agent Beta Signup - ' + properties + ' properties',
+          listings: properties,
+          _subject: 'Hosted early access - ' + properties + ' listings',
           source: 'guestycopilot.com',
           _template: 'table'
         })
       }).then(response => {
         if (!response.ok) { throw new Error('HTTP ' + response.status); }
         return response.json();
-      })
-        .then(data => {
-          // formsubmit.co/ajax returns {"success":"true"} on a real send.
-          // Anything else is NOT a send, and must not render the success state.
-          if (!data || String(data.success) !== 'true') { throw new Error('not accepted'); }
-          form.style.display = 'none';
-          error.style.display = 'none';
-          success.style.display = 'block';
-        })
-        .catch(() => {
-          // 2026-08-06: the failure branch used to be byte-identical to the success
-          // branch, so an outage, an adblocker or a rate-limit rendered "You're in!"
-          // to a visitor whose email we never received. Never show success we
-          // cannot evidence: keep the form up, re-enable it, and give them a
-          // channel that does not depend on this request having worked.
-          success.style.display = 'none';
-          error.style.display = 'block';
-          btn.textContent = 'Join the Waitlist';
-          btn.disabled = false;
-        });
-    }
-
-    function copyInstall() {
-      const cmd = document.getElementById('installCmd');
-      cmd.select();
-      cmd.setSelectionRange(0, 99999);
-      navigator.clipboard.writeText(cmd.value).then(() => {
-        const btn = document.querySelector('.install-copy-btn');
-        btn.textContent = 'Copied!';
-        setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+      }).then(data => {
+        // Only a real send shows success; anything else keeps the form up.
+        if (!data || String(data.success) !== 'true') { throw new Error('not accepted'); }
+        form.style.display = 'none';
+        error.style.display = 'none';
+        success.style.display = 'block';
+      }).catch(() => {
+        success.style.display = 'none';
+        error.style.display = 'block';
+        btn.textContent = 'Get Early Access';
+        btn.disabled = false;
       });
     }
 
-    // Smooth scroll for anchor links
+    function copyInstall() {
+      const text = document.getElementById('installCmd').textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.querySelector('.install-copy-btn');
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.textContent = 'Copy config'; }, 2000);
+      });
+    }
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
+        if (href.length < 2) return;
+        const target = document.querySelector(href);
         if (target) {
+          e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // Close mobile menu if open
           document.querySelector('.mobile-menu').classList.remove('open');
         }
       });
